@@ -1,8 +1,7 @@
 "use client";
 import { signIn } from "next-auth/react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
-
+import { useRouter } from "next/router";
 import React, { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 
@@ -38,7 +37,7 @@ const LoginForm = () => {
       if (data?.success === true) {
         toast.success(data?.message);
         router.push("/");
-        console.log("This login data", data);
+        // console.log("This login data", data);
       } else {
         toast.error(data?.error);
       }
