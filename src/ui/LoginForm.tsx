@@ -1,21 +1,32 @@
 "use client";
-import { signIn } from "next-auth/react";
+import { signIn, useSession } from "next-auth/react";
 import Link from "next/link";
-import { useRouter } from "next/router";
-import React, { useState } from "react";
+import { useRouter } from "next/navigation";
+// import { useRouter } from "next/router";
+import React, { useEffect, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 
 const LoginForm = () => {
   const [loading, setLoading] = useState(false);
+  const { data: session } = useSession();
   const router = useRouter();
   const [user, setUser] = useState({
     username: "",
     email: "",
     password: "",
   });
+  console.log("This is user auth info", session);
+
+  useEffect(() => {
+    // Check if session has data
+    if (session?.user) {
+      // Redirect to homepage
+      router.push("/");
+    }
+  }, [session, router]);
+
   const handleLogin = async (e: React.MouseEvent<HTMLButtonElement>) => {
     // console.log(user);
-
     e.preventDefault();
     try {
       setLoading(true);
@@ -36,9 +47,13 @@ const LoginForm = () => {
 
       if (data?.success === true) {
         toast.success(data?.message);
-        router.push("/");
-        // console.log("This login data", data);
-      } else {
+        // router.push("/");
+        console.log("This login data", data);
+      }
+      // else if (session?.user !== null) {
+      //   router.push("/");
+      // }
+      else {
         toast.error(data?.error);
       }
     } catch (error) {
