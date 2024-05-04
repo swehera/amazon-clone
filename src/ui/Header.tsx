@@ -92,11 +92,11 @@ const Header = () => {
           </div>
 
           <div className=" flex items-center gap-x-2">
-            <div className="md:hidden flex items-center">
+            <Link href={"/login"} className="md:hidden flex items-center">
               <p className="text-sm text-white">Sign in</p>
               <p className="text-[8px] text-white">{" > "}</p>
               <MdAccountCircle className="text-white text-2xl" />
-            </div>
+            </Link>
 
             <div className="cursor-pointer headerStyle md:hidden">
               <Image src={cart} alt="cart" className="relative" />
