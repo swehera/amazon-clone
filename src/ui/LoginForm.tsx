@@ -1,7 +1,8 @@
 "use client";
 import { signIn } from "next-auth/react";
 import Link from "next/link";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
+
 import React, { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 
