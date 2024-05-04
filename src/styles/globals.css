@@ -16,4 +16,13 @@
   .headerStyle {
     @apply border border-transparent hover:border-white h-[70%] rounded-sm duration-200 px-1 flex items-center justify-center;
   }
+  .searchBarStyle {
+    @apply flex-1 border border-textColor bg-white h-10 rounded-md relative;
+  }
+  .sideMenuHide {
+    @apply flex items-center  gap-x-1 text-sm font-semibold border border-transparent hover:border-white duration-200 px-2 rounded-sm cursor-pointer;
+  }
+  .accountHide {
+    @apply cursor-pointer border border-transparent hover:border-white h-[70%] rounded-sm duration-200 p-2 flex items-center justify-center;
+  }
 }

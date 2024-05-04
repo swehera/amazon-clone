@@ -7,6 +7,9 @@ import { CiLocationOn } from "react-icons/ci";
 import { MdArrowDropDown } from "react-icons/md";
 import { IoMdClose } from "react-icons/io";
 import { MdSearch } from "react-icons/md";
+import { IoMenu } from "react-icons/io5";
+import { CiMenuBurger } from "react-icons/ci";
+import { MdAccountCircle } from "react-icons/md";
 import { useSession } from "next-auth/react";
 
 const Header = () => {
@@ -16,15 +19,22 @@ const Header = () => {
   console.log("This is user auth info", session);
 
   return (
-    <header className=" w-full  bg-amazonBlue h-[68px] flex items-center   px-[14px] gap-x-2 sticky top-0 z-50">
+    <header className=" w-full  bg-amazonBlue h-[68px] flex items-center  md:items-center justify-between md:justify-center   px-[14px] gap-x-2 sticky top-0 z-50">
       {/*==========logo work start============ */}
-      <Link href={"/"} className="headerStyle">
-        <Image src={logo} alt="logo" className=" " />
+      <Link href={"/"} className="headerStyle gap-x-1">
+        <div className=" md:hidden">
+          <CiMenuBurger className=" text-3xl text-white font-bold" />
+        </div>
+        <Image
+          src={logo}
+          alt="logo"
+          className=" block md:block w-16 md:w-20 mt-[6px]"
+        />
       </Link>
       {/*=========logo work end================*/}
 
       {/*============location work start ===============*/}
-      <div className="headerStyle cursor-pointer">
+      <div className=" cursor-pointer hidden md:headerStyle ">
         <CiLocationOn className=" text-white text-xl mt-3 mr-[1px]" />
         <div>
           <p className=" text-textColor text-xs">Deliver to</p>
@@ -34,7 +44,7 @@ const Header = () => {
       {/*============location work end==================*/}
 
       {/* ==========search bar work start============== */}
-      <div className=" flex-1 border border-textColor bg-white h-10 rounded-md relative">
+      <div className=" cursor-pointer hidden md:block searchBarStyle ">
         <input
           type="text"
           placeholder="Search Amazon"
@@ -70,11 +80,8 @@ const Header = () => {
           </div>
         </Link>
       ) : (
-        <Link
-          href={"/login"}
-          className=" cursor-pointer border border-transparent hover:border-white h-[70%] rounded-sm duration-200 p-2 flex items-center justify-center"
-        >
-          <div>
+        <Link href={"/login"}>
+          <div className=" hidden md:accountHide">
             <p className=" text-white text-xs">Hello, sign in</p>
             <div className=" flex">
               <p className=" text-white font-semibold text-sm ">
@@ -83,13 +90,32 @@ const Header = () => {
               <MdArrowDropDown className=" mt-[1px] text-xl text-textColor" />
             </div>
           </div>
+
+          <div className="flex items-center gap-x-2">
+            {/* that account div show in small device only.... work start */}
+            <div className="md:hidden flex items-center">
+              <p className="text-sm text-white">Sign in</p>
+              <p className="text-[8px] text-white">{" > "}</p>
+              <MdAccountCircle className="text-white text-2xl" />
+            </div>
+            {/* that account div show in small device only....work end */}
+            {/* that cart div show only small device.... work start */}
+            <div className="cursor-pointer headerStyle md:hidden">
+              <Image src={cart} alt="cart" className="relative" />
+              <p className="text-amazonYellow font-semibold absolute top-4 right-[61px]">
+                0
+              </p>
+              <p className="text-white font-semibold text-sm mt-1">Cart</p>
+            </div>
+            {/* that cart div show only small device.... work end */}
+          </div>
         </Link>
       )}
 
       {/* ===============user sign/logout account work end================= */}
 
       {/* ==================Return and Order Work start===================== */}
-      <div className=" cursor-pointer border border-transparent hover:border-white h-[70%] rounded-sm duration-200 p-2 flex items-center justify-center">
+      <div className=" cursor-pointer hidden md:headerStyle">
         <div>
           <p className=" text-white text-xs">Returns</p>
 
@@ -99,7 +125,7 @@ const Header = () => {
       {/* ==================Return and Order Work end===================== */}
 
       {/* ====================Cart Work start======================= */}
-      <div className="headerStyle ">
+      <div className="cursor-pointer hidden md:headerStyle ">
         <Image src={cart} alt="cart" className=" relative" />
         <p className=" text-amazonYellow font-semibold absolute top-4 right-[61px]">
           0

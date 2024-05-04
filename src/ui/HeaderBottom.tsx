@@ -24,16 +24,16 @@ const HeaderBottom = () => {
 
   return (
     <div className=" w-full h-9 px-2 bg-amazonBlueLight text-white flex">
-      <p className=" flex items-center  gap-x-1 text-sm font-semibold border border-transparent hover:border-white duration-200 px-2 rounded-sm cursor-pointer">
+      <p className=" hidden md:sideMenuHide">
         <IoMenu className=" text-2xl" />
         All
       </p>
-      <div className=" flex items-center ">
+      <div className=" flex items-center overflow-auto w-full">
         {navigation.map((item) => (
           <Link
             href={item?.href}
             key={item?.title}
-            className="h-full flex items-center cursor-pointer  gap-x-1 text-sm font-[500] border border-transparent hover:border-white duration-200 px-2 rounded-sm"
+            className="h-full flex items-center cursor-pointer whitespace-nowrap gap-x-1 text-sm font-[500] border border-transparent hover:border-white duration-200 px-2 rounded-sm"
           >
             {item?.title}
           </Link>
