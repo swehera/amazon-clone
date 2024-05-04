@@ -1,4 +1,4 @@
-"use client";
+// "use client";
 import { loginLogo } from "@/images";
 import "../../../styles/globals.css";
 import Image from "next/image";
