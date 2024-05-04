@@ -41,9 +41,9 @@ const HeaderBottom = () => {
         {session?.user && (
           <button
             onClick={() => signOut()}
-            className=" text-sm text-red-500 hover:text-red-400 font-[500px] h-full border border-transparent hover:border-red-600 duration-200 px-2 rounded-sm"
+            className=" text-[12px] md:text-sm  text-red-500 hover:text-red-400 font-[500px] h-full border border-transparent hover:border-red-600 duration-200 px-4 rounded-sm"
           >
-            Sign Out
+            SignOut
           </button>
         )}
       </div>

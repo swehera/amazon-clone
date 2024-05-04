@@ -81,9 +81,9 @@ const Header = () => {
         </Link>
       ) : (
         <Link href={"/login"}>
-          <div className=" hidden md:accountHide">
+          <div className=" hidden md:block accountHide">
             <p className=" text-white text-xs">Hello, sign in</p>
-            <div className=" flex">
+            <div className=" flex ">
               <p className=" text-white font-semibold text-sm ">
                 Account & Lists
               </p>
@@ -91,15 +91,13 @@ const Header = () => {
             </div>
           </div>
 
-          <div className="flex items-center gap-x-2">
-            {/* that account div show in small device only.... work start */}
+          <div className=" flex items-center gap-x-2">
             <div className="md:hidden flex items-center">
               <p className="text-sm text-white">Sign in</p>
               <p className="text-[8px] text-white">{" > "}</p>
               <MdAccountCircle className="text-white text-2xl" />
             </div>
-            {/* that account div show in small device only....work end */}
-            {/* that cart div show only small device.... work start */}
+
             <div className="cursor-pointer headerStyle md:hidden">
               <Image src={cart} alt="cart" className="relative" />
               <p className="text-amazonYellow font-semibold absolute top-4 right-[61px]">
@@ -107,7 +105,6 @@ const Header = () => {
               </p>
               <p className="text-white font-semibold text-sm mt-1">Cart</p>
             </div>
-            {/* that cart div show only small device.... work end */}
           </div>
         </Link>
       )}
