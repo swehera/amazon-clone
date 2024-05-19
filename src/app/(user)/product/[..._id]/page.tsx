@@ -53,7 +53,7 @@ const SingleProduct = ({ searchParams }: any) => {
           <div className=" px-4 py-2 grid grid-cols-1 md:grid-cols-2 gap-y-3  bg-white w-[70%] rounded-md">
             <div className=" flex items-center justify-center">
               <Image
-                src={product?.image}
+                src={product?.image || "/placeholder-image.jpg"} // Provide a fallback image
                 alt="product-image"
                 width={500}
                 height={500}
