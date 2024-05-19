@@ -93,9 +93,9 @@ const Header = () => {
 
           <div className=" flex items-center gap-x-2">
             <Link href={"/login"} className="md:hidden flex items-center">
-              <p className="text-sm text-white">Sign in</p>
+              <p className=" font-semibold text-white">Sign in</p>
               <p className="text-[8px] text-white">{" > "}</p>
-              <MdAccountCircle className="text-white text-2xl" />
+              <MdAccountCircle className="text-white text-4xl" />
             </Link>
 
             <div className="cursor-pointer headerStyle md:hidden">
