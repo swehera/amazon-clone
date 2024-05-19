@@ -61,13 +61,20 @@ const SingleProduct = ({ searchParams }: any) => {
               />
             </div>
             <div className=" flex flex-col  justify-center gap-y-3 px-4 py-2 border border-gray-700 rounded-md">
-              <p className=" text-sm font-semibold">{product?.category}</p>
-              <p className=" text-xl font-semibold">{product?.title}</p>
+              <p className=" text-sm font-semibold">
+                {product?.category || "/placeholder-image.jpg"}
+              </p>
+              <p className=" text-xl font-semibold">
+                {product?.title || "/placeholder-image.jpg"}
+              </p>
               <p>
-                Price: <FormattedPrice amount={product?.price} />
+                Price:{" "}
+                <FormattedPrice
+                  amount={product?.price || "/placeholder-image.jpg"}
+                />
               </p>
               <p className=" text-sm tracking-wide text-gray-500">
-                {product?.description}
+                {product?.description || "/placeholder-image.jpg"}
               </p>
               <button className=" bg-amazonBlue text-white font-semibold w-full py-3 rounded-md">
                 add to cart
