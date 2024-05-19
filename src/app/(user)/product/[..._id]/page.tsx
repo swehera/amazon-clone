@@ -4,10 +4,18 @@ import FormattedPrice from "@/ui/FormattedPrice";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { Circles } from "react-loader-spinner";
+interface Product {
+  category: string;
+  title: string;
+  price: number;
+  description: string;
+  image: string; // Add the image property with the appropriate type
+  // Add other properties if necessary
+}
 
 const SingleProduct = ({ searchParams }: any) => {
   const { id } = searchParams;
-  const [product, setProduct] = useState({});
+  const [product, setProduct] = useState<Product | null>(null);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
