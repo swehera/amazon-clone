@@ -21,7 +21,7 @@ const SingleProduct = ({ searchParams }: any) => {
       setLoading(false);
     };
     getData();
-  }, []);
+  }, [id]);
 
   console.log("id", id);
 
