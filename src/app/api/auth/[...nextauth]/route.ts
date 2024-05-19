@@ -1,6 +1,9 @@
 import nextAuth from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
 import GithubProvider from "next-auth/providers/github";
+import clientPromise from "@/lib/db";
+import { MongoDBAdapter } from "@auth/mongodb-adapter";
+import { Adapter } from "next-auth/adapters";
 
 const authOptions = {
   providers: [
@@ -13,6 +16,7 @@ const authOptions = {
       clientSecret: process.env.GITHUB_SECRET!,
     }),
   ],
+  adapter: MongoDBAdapter(clientPromise) as Adapter,
 };
 
 const handler = nextAuth(authOptions);

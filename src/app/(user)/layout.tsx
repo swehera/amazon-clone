@@ -22,7 +22,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className=" font-Montserrat">
+      <body className=" font-Montserrat bg-slate-300">
         <Layout>
           <Header />
           <HeaderBottom />
