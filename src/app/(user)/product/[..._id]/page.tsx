@@ -4,12 +4,13 @@ import FormattedPrice from "@/ui/FormattedPrice";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { Circles } from "react-loader-spinner";
+
 interface Product {
   category: string;
   title: string;
   price: number;
   description: string;
-  image: string; // Add the image property with the appropriate type
+  image: string;
   // Add other properties if necessary
 }
 
@@ -49,9 +50,9 @@ const SingleProduct = ({ searchParams }: any) => {
           <p className="text-lg font-semibold">Product is loading...</p>
         </div>
       ) : (
-        <div className=" flex items-center justify-center mt-4">
-          <div className=" px-4 py-2 grid grid-cols-1 md:grid-cols-2 gap-y-3  bg-white w-[70%] rounded-md">
-            <div className=" flex items-center justify-center">
+        <div className="flex items-center justify-center mt-4">
+          <div className="px-4 py-2 grid grid-cols-1 md:grid-cols-2 gap-y-3 bg-white w-[70%] rounded-md">
+            <div className="flex items-center justify-center">
               <Image
                 src={product?.image || "/placeholder-image.jpg"} // Provide a fallback image
                 alt="product-image"
@@ -60,23 +61,23 @@ const SingleProduct = ({ searchParams }: any) => {
                 className="w-80 h-auto"
               />
             </div>
-            <div className=" flex flex-col  justify-center gap-y-3 px-4 py-2 border border-gray-700 rounded-md">
-              <p className=" text-sm font-semibold">
-                {product?.category || "/placeholder-image.jpg"}
+            <div className="flex flex-col justify-center gap-y-3 px-4 py-2 border border-gray-700 rounded-md">
+              <p className="text-sm font-semibold">
+                {product?.category || "No category available"}
               </p>
-              <p className=" text-xl font-semibold">
-                {product?.title || "/placeholder-image.jpg"}
+              <p className="text-xl font-semibold">
+                {product?.title || "No title available"}
               </p>
               <p>
                 Price:{" "}
                 <FormattedPrice
-                  amount={product?.price || "/placeholder-image.jpg"}
+                  amount={product?.price || 0} // Provide a numeric fallback
                 />
               </p>
-              <p className=" text-sm tracking-wide text-gray-500">
-                {product?.description || "/placeholder-image.jpg"}
+              <p className="text-sm tracking-wide text-gray-500">
+                {product?.description || "No description available"}
               </p>
-              <button className=" bg-amazonBlue text-white font-semibold w-full py-3 rounded-md">
+              <button className="bg-amazonBlue text-white font-semibold w-full py-3 rounded-md">
                 add to cart
               </button>
             </div>
