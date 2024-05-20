@@ -3,7 +3,7 @@
 import FormattedPrice from "@/ui/FormattedPrice";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import { Circles, RotatingTriangles } from "react-loader-spinner";
+import { Circles } from "react-loader-spinner";
 
 interface Product {
   category: string;
@@ -38,14 +38,14 @@ const SingleProduct = ({ searchParams }: any) => {
     <div>
       {loading ? (
         <div className="py-10 flex flex-col gap-2 items-center justify-center">
-          <RotatingTriangles
-            visible={true}
+          <Circles
             height="80"
             width="80"
             color="#4fa94d"
-            ariaLabel="rotating-triangles-loading"
+            ariaLabel="circles-loading"
             wrapperStyle={{}}
             wrapperClass=""
+            visible={true}
           />
           <p className="text-lg font-semibold">Product is loading...</p>
         </div>
