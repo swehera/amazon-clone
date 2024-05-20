@@ -10,7 +10,8 @@ import { MdSearch } from "react-icons/md";
 import { IoMenu } from "react-icons/io5";
 import { CiMenuBurger } from "react-icons/ci";
 import { MdAccountCircle } from "react-icons/md";
-import { useSession } from "next-auth/react";
+import { IoMdLogOut } from "react-icons/io";
+import { signOut, useSession } from "next-auth/react";
 
 const Header = () => {
   const [searchText, setSearchText] = useState("");
@@ -66,19 +67,37 @@ const Header = () => {
 
       {/* ===============user sign/logout account work start================= */}
       {session?.user ? (
-        <Link href={"/profile"} className="headerStyle flex items-center gap-1">
-          <Image
-            src={session?.user?.image!}
-            alt="user image"
-            width={40}
-            height={40}
-            className="rounded-full"
-          />
-          <div className="text-sm text-white">
-            <p>{session?.user?.name}</p>
-            <p className="text-xs">{session?.user?.email}</p>
+        <div className=" flex items-center gap-x-2">
+          <Link
+            href={"/profile"}
+            className="headerStyle flex items-center gap-x-3"
+          >
+            <Image
+              src={session?.user?.image!}
+              alt="user image"
+              width={40}
+              height={40}
+              className="rounded-full"
+            />
+            <div className="text-sm text-white hidden md:block">
+              <p>{session?.user?.name}</p>
+              <p className="text-xs">{session?.user?.email}</p>
+            </div>
+          </Link>
+          <div className="cursor-pointer headerStyle md:hidden">
+            <Image src={cart} alt="cart" className="relative" />
+            <p className="text-amazonYellow font-semibold absolute top-4 right-[108px]">
+              0
+            </p>
+            <p className="text-white font-semibold text-sm mt-1">Cart</p>
           </div>
-        </Link>
+          <div className=" block  md:hidden headerStyle ">
+            <IoMdLogOut
+              onClick={() => signOut()}
+              className=" text-white text-3xl cursor-pointer  "
+            />
+          </div>
+        </div>
       ) : (
         <Link href={"/login"}>
           <div className=" hidden md:block accountHide">

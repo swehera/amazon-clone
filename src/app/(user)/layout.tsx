@@ -7,6 +7,7 @@ import "react-toastify/dist/ReactToastify.css";
 import Header from "@/ui/Header";
 import HeaderBottom from "@/ui/HeaderBottom";
 import Layout from "@/ui/Layout";
+import Footer from "@/ui/Footer";
 
 const montserrat = Montserrat({ subsets: ["latin"] });
 
@@ -26,7 +27,9 @@ export default function RootLayout({
         <Layout>
           <Header />
           <HeaderBottom />
+
           {children}
+          <Footer />
         </Layout>
       </body>
     </html>
