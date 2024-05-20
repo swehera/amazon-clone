@@ -51,7 +51,7 @@ const SingleProduct = ({ searchParams }: any) => {
         </div>
       ) : (
         <div className="flex items-center justify-center mt-4">
-          <div className="px-4 py-2 grid grid-cols-1 md:grid-cols-2 gap-y-3 bg-white w-[95%] md:w-[70%] rounded-md">
+          <div className="px-4 py-8 md:py-2 grid grid-cols-1 md:grid-cols-2 gap-y-3 bg-white w-[95%] md:w-[70%] rounded-md">
             <div className="flex items-center justify-center">
               <Image
                 src={product?.image || "/placeholder-image.jpg"} // Provide a fallback image
@@ -77,7 +77,7 @@ const SingleProduct = ({ searchParams }: any) => {
               <p className="text-sm tracking-wide text-gray-500">
                 {product?.description || "No description available"}
               </p>
-              <button className="bg-amazonBlue text-white font-semibold w-full py-3 rounded-md">
+              <button className="bg-amazonBlue text-white font-semibold w-full py-3 rounded-md mb-4">
                 add to cart
               </button>
             </div>
