@@ -5,7 +5,10 @@ import { knowUs } from "@/constant";
 
 const Footer = () => {
   return (
-    <div className="w-full bg-[#232F3E] text-gray-200">
+    <div className="w-full bg-[#232F3E] text-gray-200 mt-5">
+      <div className=" flex items-center justify-center text-white bg-[#37475A] py-3">
+        <p className=" text-sm">Back to top</p>
+      </div>
       <div className="max-w-5xl mx-auto px-4 py-10 flex items-start justify-between gap-10 flex-wrap">
         <div>
           <FooterTitle title="Get to Know Us" />
